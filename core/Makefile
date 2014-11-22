@@ -1628,11 +1628,15 @@ ifneq ($(TARGET_UNIFIED_DEVICE),)
     endif
 endif
 
+ifeq ($(BLOCK_BASED_OTA),true)
+    $(INTERNAL_OTA_PACKAGE_TARGET): block_based := --block
+endif
+
 $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)
 	@echo -e ${PRT_HST}"Package OTA: $@"${CL_RST}
 	$(hide) MKBOOTIMG=$(MKBOOTIMG) \
 	   $(OTA_FROM_TARGET_SCRIPT) -v \
-	   --block \
+	   $(block_based) \
 	   $(if $(WITH_LZMA_OTA), -z) \
 	   -p $(HOST_OUT) \
 	   -k $(KEY_CERT_PAIR) \
