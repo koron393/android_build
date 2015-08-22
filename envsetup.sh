@@ -2597,7 +2597,7 @@ function set_java_home() {
                 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
                 ;;
             *)
-                export JAVA_HOME=/usr/lib/jvm/java-6-sun
+                export JAVA_HOME=/etc/java-config-2/current-system-vm
                 ;;
         esac
       else
@@ -2606,7 +2606,7 @@ function set_java_home() {
                 export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
                 ;;
             *)
-                export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+                export JAVA_HOME=/etc/java-config-2/current-system-vm
                 ;;
         esac
       fi

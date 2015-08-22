@@ -458,9 +458,9 @@ HOST_JDK_TOOLS_JAR:= $(shell $(BUILD_SYSTEM)/find-jdk-tools-jar.sh)
 endif
 
 ifneq ($(HOST_JDK_TOOLS_JAR),)
-ifeq ($(wildcard $(HOST_JDK_TOOLS_JAR)),)
-$(error Error: could not find jdk tools.jar, please check if your JDK was installed correctly)
-endif
+#ifeq ($(wildcard $(HOST_JDK_TOOLS_JAR)),)
+#$(error Error: could not find jdk tools.jar, please check if your JDK was installed correctly)
+#endif
 endif
 
 # Is the host JDK 64-bit version?
